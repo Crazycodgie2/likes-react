@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react"
+import "./App.css"
 
 function App() {
+  const [count, setCount] = useState(0)
+  function handleCount(e) {
+    e.preventDefault()
+    setCount(count + 1)
+  }
+
+  const Click = () => {
+    const [Click, setClicks] = useState("Click")
+    return <p onClicks={() => setClicks("Click")}>{Click}</p>
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <button type="button" onClick={handleCount} id="like">
+          {count}
+        </button>
+        <p>Clicks</p>
       </header>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
